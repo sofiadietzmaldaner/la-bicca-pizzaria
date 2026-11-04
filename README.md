@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍕 La Bicca Pizzaria
 
-## Getting Started
+Website for **La Bicca Pizzaria**, a family-run pizzeria. The goal is to let customers browse the menu and order directly from the pizzeria, without paying marketplace commissions.
 
-First, run the development server:
+> 🚧 **Work in progress.** The menu and contact flow are working; direct ordering is the next stage.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## What it does today
+
+- **Home page** with a hero section (logo, photo and a "see the menu" button), in Portuguese for the pizzeria's customers.
+- **Menu sections** with flavor cards, split into savory and sweet pizzas (a combos section is on the way).
+- **Pricing that mirrors the delivery marketplace:** price depends on the *type* of flavor (traditional or premium) and the *size*, not on each flavor individually. Prices are stored in cents (integers) to avoid rounding errors.
+- **Size rules built into the data:** each size defines its number of slices and the maximum number of flavors per pizza (up to 4 on the family size).
+- **Side menu** for jumping between sections of the page.
+- **Contact section** with phone, address and opening hours.
+- **WhatsApp button** that opens a chat with the order message already written.
+- **Single source of truth for store info:** name, phone, address and opening hours live in one file, and the menu, footer and WhatsApp button all read from it.
+
+## Tech
+
+- [Next.js](https://nextjs.org/) (App Router) and React
+- CSS Modules
+- ESLint
+
+## Project structure
+
+```
+app/
+├── components/      # FlavorCard, SideMenu, WhatsApp button
+├── page.js          # home page
+└── layout.js
+data/
+├── menu.js          # flavors, sizes and price table
+└── loja.js          # store contact info
+lib/                 # formatting helpers
+public/              # logo and images
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Roadmap
 
-To learn more about Next.js, take a look at the following resources:
+- [ ] Move the menu from a data file to a database (PostgreSQL)
+- [ ] Direct ordering with a cart
+- [ ] Mobile app (Expo / React Native) for Android and iOS
+- [ ] Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## About this project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a real project for a real business, built from scratch by [Sofia Maldaner](https://github.com/sofiadietzmaldaner), partly to learn full-stack development end to end. It is developed with the help of Claude Code.

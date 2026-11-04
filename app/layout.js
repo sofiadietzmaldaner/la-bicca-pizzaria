@@ -2,6 +2,8 @@
 // Tudo que está aqui (idioma, título, fonte) vale para o site inteiro.
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import MenuLateral from "./components/MenuLateral";
+import BotaoWhatsapp from "./components/BotaoWhatsapp";
 
 // Carrega a fonte Poppins do Google e a entrega como variável CSS.
 const poppins = Poppins({
@@ -20,7 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={poppins.variable}>
-      <body>{children}</body>
+      <body>
+        <MenuLateral />
+        {children}
+        <BotaoWhatsapp />
+      </body>
     </html>
   );
 }

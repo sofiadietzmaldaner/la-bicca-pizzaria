@@ -2,7 +2,7 @@
 .pagina {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 24px 16px 64px;
+  padding: 80px 16px 100px; /* espaço em cima para o botão do menu e embaixo para o WhatsApp */
 }
 
 .hero {
@@ -47,11 +47,14 @@
   border-radius: 24px;
 }
 
-.cardapio {
-  margin-top: 48px;
+/* Cada seção (combos, salgadas, doces, contato) tem espaço em cima e o título vermelho.
+   scroll-margin-top: ao rolar pelo menu, deixa uma folga no topo para o título não colar. */
+.secao {
+  margin-top: 56px;
+  scroll-margin-top: 24px;
 }
 
-.cardapio h2 {
+.secao h2 {
   color: var(--vermelho);
   margin-bottom: 8px;
 }

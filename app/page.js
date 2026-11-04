@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { sabores } from "@/data/menu";
 import CardSabor from "./components/CardSabor";
+import { loja, linkWhatsapp } from "@/data/loja";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
           />
           <h1>Pizza quentinha, direto da La Bicca.</h1>
           <p>Peça pelo site e fale direto com a gente, sem taxa de aplicativo.</p>
-          <a className={styles.botao} href="#cardapio">
+          <a className={styles.botao} href="#salgadas">
             Ver cardápio
           </a>
         </div>
@@ -34,19 +35,47 @@ export default function Home() {
         />
       </section>
 
-      <section id="cardapio" className={styles.cardapio}>
-        <h2>Pizzas salgadas</h2>
-        <div className={styles.grade}>
-          {/* filter: fica só com as salgadas. map: transforma cada sabor em um card.
-              "key" ajuda o React a saber qual card é qual quando a lista muda. */}
-          {sabores
-            .filter((sabor) => sabor.categoria === "salgada")
-            .map((sabor) => (
-              <CardSabor key={sabor.id} sabor={sabor} />
-            ))}
-        </div>
+      <div id="cardapio">
+        <section id="combos" className={styles.secao}>
+          <h2>Combos</h2>
+          <p>Em breve: os combos da La Bicca aparecem aqui.</p>
+        </section>
 
-        {/* TODO (Sofia): faça a seção "Pizzas doces" aqui, copiando a ideia acima. */}
+        <section id="salgadas" className={styles.secao}>
+          <h2>Pizzas salgadas</h2>
+          <div className={styles.grade}>
+            {/* filter: fica só com as salgadas. map: transforma cada sabor em um card.
+                "key" ajuda o React a saber qual card é qual quando a lista muda. */}
+            {sabores
+              .filter((sabor) => sabor.categoria === "salgada")
+              .map((sabor) => (
+                <CardSabor key={sabor.id} sabor={sabor} />
+              ))}
+          </div>
+        </section>
+
+        <section id="doces" className={styles.secao}>
+          <h2>Pizzas doces</h2>
+          <div className={styles.grade}>
+            {sabores
+              .filter((sabor) => sabor.categoria === "doce")
+              .map((sabor) => (
+                <CardSabor key={sabor.id} sabor={sabor} />
+              ))}
+          </div>
+        </section>
+      </div>
+
+      <section id="contato" className={styles.secao}>
+        <h2>Contato</h2>
+        <p>
+          WhatsApp:{" "}
+          <a href={linkWhatsapp()} target="_blank" rel="noopener noreferrer">
+            {loja.telefoneExibido}
+          </a>
+        </p>
+        <p>{loja.endereco}</p>
+        <p>{loja.horario}</p>
       </section>
     </main>
   );

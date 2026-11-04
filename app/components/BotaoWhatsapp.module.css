@@ -1,0 +1,18 @@
+.botao {
+  position: fixed; /* fica parado no canto mesmo quando a página rola */
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366; /* verde do WhatsApp */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+}
+
+.botao:hover {
+  background: #1ebe5b;
+}

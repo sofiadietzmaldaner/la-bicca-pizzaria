@@ -2,6 +2,8 @@
 // Esta função é um COMPONENTE React: uma função que devolve um pedaço de tela.
 import Image from "next/image";
 import styles from "./page.module.css";
+import { sabores } from "@/data/menu";
+import CardSabor from "./components/CardSabor";
 
 export default function Home() {
   return (
@@ -33,8 +35,18 @@ export default function Home() {
       </section>
 
       <section id="cardapio" className={styles.cardapio}>
-        <h2>Cardápio</h2>
-        <p>Em breve: a lista de sabores aparece aqui.</p>
+        <h2>Pizzas salgadas</h2>
+        <div className={styles.grade}>
+          {/* filter: fica só com as salgadas. map: transforma cada sabor em um card.
+              "key" ajuda o React a saber qual card é qual quando a lista muda. */}
+          {sabores
+            .filter((sabor) => sabor.categoria === "salgada")
+            .map((sabor) => (
+              <CardSabor key={sabor.id} sabor={sabor} />
+            ))}
+        </div>
+
+        {/* TODO (Sofia): faça a seção "Pizzas doces" aqui, copiando a ideia acima. */}
       </section>
     </main>
   );

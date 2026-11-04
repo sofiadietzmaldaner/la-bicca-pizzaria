@@ -55,3 +55,11 @@
   color: var(--vermelho);
   margin-bottom: 8px;
 }
+
+.grade {
+  display: grid;
+  /* Quantas colunas couberem, cada uma com no mínimo 220px. Responsivo sem media query. */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}

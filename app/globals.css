@@ -1,0 +1,23 @@
+/* CSS global: vale para o site todo. */
+
+/* Variáveis de cor: mudamos a cor da marca em um lugar só. */
+:root {
+  --vermelho: #ea1c24; /* vermelho tirado do logo */
+  --vermelho-escuro: #b8131a;
+  --creme: #fff8f0;
+  --texto: #2a2220;
+}
+
+/* Faz padding e borda contarem dentro da largura do elemento. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte), system-ui, sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  line-height: 1.5;
+}

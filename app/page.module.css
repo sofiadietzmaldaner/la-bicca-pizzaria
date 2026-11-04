@@ -1,0 +1,57 @@
+/* CSS Module: estas classes só valem para o page.js (não vazam pro resto). */
+.pagina {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap; /* no celular, a foto desce para baixo do texto */
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+}
+
+.textos {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.textos h1 {
+  font-size: 2.2rem;
+  line-height: 1.15;
+  color: var(--vermelho);
+}
+
+.botao {
+  background: var(--vermelho);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background: var(--vermelho-escuro);
+}
+
+.foto {
+  flex: 1 1 320px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+.cardapio {
+  margin-top: 48px;
+}
+
+.cardapio h2 {
+  color: var(--vermelho);
+  margin-bottom: 8px;
+}
